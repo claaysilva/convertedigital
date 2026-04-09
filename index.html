@@ -82,7 +82,8 @@
         }
 
         .logo-header img {
-            max-height: 50px;
+            /* AJUSTE: Logo do header maior */
+            max-height: 90px;
             width: auto;
         }
 
@@ -167,9 +168,12 @@
         }
 
         .sobre-img img {
-            max-width: 480px; /* Aumentei de 300px para 480px */
-            width: 100%; /* Isso garante que ela não "quebre" a tela do celular se for muito grande */
+            /* AJUSTE: Nova imagem do sobre maior e com estilo */
+            max-width: 550px;
+            width: 100%;
             height: auto;
+            border-radius: 8px; /* Borda arredondada */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra suave */
         }
 
         /* Soluções */
@@ -338,6 +342,9 @@
             .sobre-content, .contato-wrapper {
                 flex-direction: column;
             }
+            .sobre-img img {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -375,7 +382,7 @@
                     <p>Nós não vendemos apenas teorias; entregamos a estruturação de negócios sólidos para empresas que buscam conformidade, previsibilidade e excelência no mercado.</p>
                 </div>
                 <div class="sobre-img">
-                    <img src="img/perfil.png" alt="Símbolo Converte">
+                    <img src="img/image_c84dfa.jpg" alt="Equipe Converte Up trabalhando no escritório corporativo">
                 </div>
             </div>
         </div>
@@ -412,7 +419,7 @@
                     <p><strong>CNPJ:</strong> 47.926.138/0001-80</p>
                     <p><strong>E-mail:</strong> contato@convertedigital.com</p>
                     <p><strong>Sede Operacional:</strong> Barueri, São Paulo - SP</p>
-                    </div>
+                </div>
                 <form class="contato-form" action="#" method="POST">
                     <input type="text" placeholder="Nome Completo" required>
                     <input type="email" placeholder="E-mail Corporativo" required>
@@ -427,7 +434,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="img/Logo 2.png" alt="Converte Inteligência em Vendas">
+                <img src="img/Logo 1.png" alt="Converte Inteligência em Vendas">
                 <p style="font-size: 0.9rem; color: #d1d5db; margin-top: 15px;">Transformando operações comerciais em máquinas previsíveis de geração de valor.</p>
             </div>
             
