@@ -1,1 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converte | Inteligência em Vendas</title>
+    <meta name="description" content="Treinamento em desenvolvimento profissional e gerencial para equipes comerciais.">
+    
+    <style>
+        /* Variáveis de Cores Baseadas no Logo */
+        :root {
+            --cor-primaria: #D45D79; /* Rosa/Salmão do logo */
+            --cor-secundaria: #3C5A66; /* Azul escuro/Cinza do logo */
+            --cor-fundo: #F8F9FA;
+            --cor-texto: #333333;
+            --cor-texto-claro: #666666;
+            --cor-branco: #FFFFFF;
+        }
 
+        /* Reset Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--cor-texto);
+            line-height: 1.6;
+            background-color: var(--cor-branco);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--cor-secundaria);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--cor-primaria);
+        }
+
+        /* Botões */
+        .btn {
+            display: inline-block;
+            background-color: var(--cor-primaria);
+            color: var(--cor-branco);
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #b84a62;
+            color: var(--cor-branco);
+            transform: translateY(-2px);
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--cor-branco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo-header img {
+            max-height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 50px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--cor-primaria);
+            margin: 15px auto 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--cor-fundo);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--cor-secundaria);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--cor-texto-claro);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* Quem Somos */
+        .sobre-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .sobre-texto {
+            flex: 1;
+        }
+
+        .sobre-texto p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--cor-texto-claro);
+        }
+
+        .sobre-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .sobre-img img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* Soluções */
+        .solucoes {
+            background-color: var(--cor-fundo);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--cor-branco);
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--cor-primaria);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            color: var(--cor-secundaria);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--cor-texto-claro);
+        }
+
+        /* Contato */
+        .contato-wrapper {
+            display: flex;
+            gap: 50px;
+            background-color: var(--cor-branco);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .contato-info {
+            flex: 1;
+        }
+
+        .contato-info h3 {
+            color: var(--cor-secundaria);
+            margin-bottom: 20px;
+        }
+
+        .contato-info p {
+            margin-bottom: 15px;
+            color: var(--cor-texto-claro);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .contato-form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contato-form input, 
+        .contato-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contato-form textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-branco);
+            padding: 60px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            max-width: 200px;
+            filter: brightness(0) invert(1); /* Deixa a logo branca para o fundo escuro */
+            margin-bottom: 15px;
+        }
+
+        .footer-info h4, .footer-links h4 {
+            color: var(--cor-primaria);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-info p {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            color: #d1d5db;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #d1d5db;
+            font-size: 0.9rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--cor-primaria);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #9ca3af;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .footer-bottom span {
+            font-weight: 600;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .sobre-content, .contato-wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo-header">
+                <img src="img/Logo 1.png" alt="Converte Inteligência em Vendas">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Quem Somos</a></li>
+                <li><a href="#solucoes">Soluções</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Elevando o Padrão do Desenvolvimento Profissional e Comercial</h1>
+            <p>Capacitamos líderes e equipes de vendas para alcançarem a excelência operacional através de treinamentos e metodologias corporativas validadas.</p>
+            <a href="#contato" class="btn">Fale com um Consultor</a>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre a Converte Up</h2>
+            <div class="sobre-content">
+                <div class="sobre-texto">
+                    <p>Fundada em 2022, a <strong>CONVERTE UP LTDA</strong> é uma empresa sediada em Barueri, SP, especializada em treinamento em desenvolvimento profissional e gerencial. Nossa missão é transformar operações comerciais através de inteligência, organização e metodologias estruturadas.</p>
+                    <p>Sob a liderança de nossa CEO, Sharon Santos, já auxiliamos diversas empresas a organizarem seus processos, implementarem gestão de alta performance e desenvolverem equipes comerciais mais eficientes e previsíveis.</p>
+                    <p>Nós não vendemos apenas teorias; entregamos a estruturação de negócios sólidos para empresas que buscam conformidade, previsibilidade e excelência no mercado.</p>
+                </div>
+                <div class="sobre-img">
+                    <img src="img/perfil.png" alt="Símbolo Converte">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solucoes" class="solucoes">
+        <div class="container">
+            <h2 class="section-title">Nossas Soluções Corporativas</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Treinamento e Capacitação</h3>
+                    <p>Desenvolvimento de profissionais de linha de frente e gestores através de programas de capacitação focados em inteligência de negócios e metodologias ágeis de relacionamento corporativo.</p>
+                </div>
+                <div class="card">
+                    <h3>Desenvolvimento Gerencial</h3>
+                    <p>Consultoria dedicada à estruturação de processos internos, criação de playbooks operacionais e definição de métricas de sucesso voltadas para líderes e diretores de organizações.</p>
+                </div>
+                <div class="card">
+                    <h3>Otimização de Processos</h3>
+                    <p>Análise aprofundada e reestruturação do fluxo de cadência, inteligência na reativação de bases de contatos e padronização do atendimento corporativo (B2B e B2C).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contato-wrapper">
+                <div class="contato-info">
+                    <h3>Atendimento Corporativo</h3>
+                    <p>Nossa equipe está pronta para entender as necessidades da sua empresa e propor as melhores soluções em desenvolvimento gerencial.</p>
+                    <br>
+                    <p><strong>CNPJ:</strong> 47.926.138/0001-80</p>
+                    <p><strong>E-mail:</strong> contato@convertedigital.com</p>
+                    <p><strong>Sede Operacional:</strong> Barueri, São Paulo - SP</p>
+                    </div>
+                <form class="contato-form" action="#" method="POST">
+                    <input type="text" placeholder="Nome Completo" required>
+                    <input type="email" placeholder="E-mail Corporativo" required>
+                    <input type="tel" placeholder="Telefone / WhatsApp">
+                    <textarea placeholder="Como podemos ajudar a sua empresa?" required></textarea>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="img/Logo 2.png" alt="Converte Inteligência em Vendas">
+                <p style="font-size: 0.9rem; color: #d1d5db; margin-top: 15px;">Transformando operações comerciais em máquinas previsíveis de geração de valor.</p>
+            </div>
+            
+            <div class="footer-info">
+                <h4>Dados da Empresa</h4>
+                <p>CONVERTE UP LTDA - ME</p>
+                <p>CNPJ: 47.926.138/0001-80</p>
+                <p>Barueri - São Paulo, SP</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="#">Compliance</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 CONVERTE UP LTDA. Todos os direitos reservados.</p>
+            <p>Desenvolvido por <span>CSCode</span></p>
+        </div>
+    </footer>
+
+</body>
+</html>
